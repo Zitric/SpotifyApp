@@ -1,0 +1,49 @@
+<div class="container main-container">
+  <div class="row align-items-center">
+    <div class="col-md-3">
+      <img [src]="artist.images | sinfoto" alt="" class="img-thumbnail img-circle">
+    </div>
+    <div class="col-md-9">
+      <h1 class="text-capitalize text-center"> {{ artist.name }}</h1>
+      <hr>
+      <div class="row justify-content-md-center">
+        <div>
+          <button class="btn btn-outline-danger"
+                  [routerLink]="['/search']">Back</button>
+          <a [href]="artist.external_urls?.spotify"
+             class="btn btn-outline-success" target="_blank"
+              >See Spotify profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container main-container">
+  <h2>Top Tracks</h2>
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Popularity</th>
+        <th scope="col">Play</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let track of topTracks; let i = index">
+        <td scope="row">{{ i + 1 }}</td>
+        <td>
+          <img [src]="track.album.images | sinfoto" alt=""
+               class="img-50">
+        </td>
+        <td><span>{{ track.name }}</span></td>
+        <td><span>{{ track.popularity }}%</span></td>
+        <td>
+          <iframe [src]="track.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
