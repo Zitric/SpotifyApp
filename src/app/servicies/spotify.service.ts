@@ -23,7 +23,7 @@ export class SpotifyService {
     return headers;
   }
 
-  //======================================================
+  // ======================================================
 
   getTokenFromSpotify() {
 
@@ -81,7 +81,7 @@ export class SpotifyService {
     }
   }
 
-  //======================================================
+  // ======================================================
 
   getArtists(search: string, token?: string) {
     // const urlSearch = this.urlSpotify + 'search?query=' + search + '&type=artist&offset=0&limit=20';
