@@ -21,11 +21,13 @@ export class ArtistComponent implements OnInit {
         .map( params => params.id )
         .subscribe( id => {
 
-          console.log( id );
-          this.spotifyService.getArtist( id ).subscribe( artist => {
+          this.spotifyService.getToken().subscribe( token => {
+            this.spotifyService.getArtist( id, token ).subscribe( artist => {
               this.artist = artist;
               console.log( artist );
+            });
           });
+
           this.spotifyService.getTopTracks( id )
             .map( ( response: any ) => response.tracks )
             .subscribe( topTracks => {

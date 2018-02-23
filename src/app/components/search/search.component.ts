@@ -14,11 +14,12 @@ export class SearchComponent implements OnInit {
 
   searchArtist() {
 
-    if (this.search.length === 0){
+    if (this.search.length === 0) {
       return;
     }
-
-    this.spotifySerice.getArtists( this.search ).subscribe();
+    this.spotifySerice.getToken().subscribe( token => {
+      this.spotifySerice.getArtists( this.search, String( token ) ).subscribe();
+    });
   }
 
   ngOnInit() {
