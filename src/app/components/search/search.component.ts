@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
 
   searchArtist() {
 
-    if (this.search.length === 0) {
+    if (this.search.length !== 0) {
       return;
     }
     this.spotifySerice.getToken().subscribe( token => {

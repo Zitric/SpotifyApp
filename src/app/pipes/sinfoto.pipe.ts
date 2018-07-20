@@ -9,7 +9,7 @@ export class SinfotoPipe implements PipeTransform {
 
     const noImage = '/assets/img/noimage.png';
 
-     if ( !images ){
+     if ( !images ) {
        return '/assets/img/noimage.png';
      }
 
